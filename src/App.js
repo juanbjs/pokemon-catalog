@@ -1,29 +1,41 @@
 import React from 'react';
 
-import logo from './logo.svg';
 import './App.css';
 
+import { getPokemonCatalog } from './service';
+
+import { Loading, Grid } from './component';
+
 function App() {
+  const [loading, setLoading] = React.useState(false);
+  const [data, setData] = React.useState([]);
+
+  React.useEffect(
+    () => {
+      setLoading(true);
+      getPokemonCatalog()
+        .then((response) => {
+          setData(response);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+        });
+    },
+    [],
+  );
+
+  if (loading) {
+    return (
+      <Loading />
+    );
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>
-            src/App.js
-          </code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid
+        data={data}
+      />
     </div>
   );
 }
