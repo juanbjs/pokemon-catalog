@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Grid.css';
+
 import { PokemonTitle } from './index';
 
 function Grid({ data }) {
