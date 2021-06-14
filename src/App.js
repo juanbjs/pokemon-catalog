@@ -16,7 +16,7 @@ function applyFilters(services, query) {
     let matches = true;
 
     if (query) {
-      const properties = ['name'];
+      const properties = ['name', 'artist', 'series'];
       let containsQuery = false;
 
       properties.forEach((property) => {

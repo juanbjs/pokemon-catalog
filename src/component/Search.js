@@ -11,7 +11,7 @@ function Search({ onChange, value }) {
         value={value}
         onChange={onChange}
         className="input"
-        placeholder="Buscar"
+        placeholder="Buscar por nombre, artista, serie"
       />
     </div>
   );
