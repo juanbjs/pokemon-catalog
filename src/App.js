@@ -5,7 +5,10 @@ import './App.css';
 import { getPokemonCatalog } from './service';
 
 import {
-  Loading, Grid, Search, Divider,
+  Loading,
+  Grid,
+  Search,
+  Divider,
 } from './component';
 
 function applyFilters(services, query) {

@@ -1,8 +1,12 @@
 import React from 'react';
 
+import './PokemonTitle.css';
+
 import PropTypes from 'prop-types';
 
-function PokemonTitle({ className, imageUrl, name }) {
+function PokemonTitle({
+  className, imageUrl, name, onClick,
+}) {
   return (
     <div
       className={className}
@@ -11,7 +15,17 @@ function PokemonTitle({ className, imageUrl, name }) {
         src={imageUrl}
         alt="logo"
       />
-      <p>{`${name}`}</p>
+      <p
+        className="title"
+      >
+        {`${name}`}
+      </p>
+      <button
+        type="button"
+        onClick={() => onClick()}
+      >
+        Ver Detalle
+      </button>
     </div>
   );
 }
@@ -20,6 +34,7 @@ PokemonTitle.propTypes = {
   className: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default PokemonTitle;
