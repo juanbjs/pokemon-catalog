@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Grid.css';
 
-import {
-  PokemonTitle,
-  PokemonDetail,
-} from './index';
+import PokemonTitle from './PokemonTitle';
+import PokemonDetail from './PokemonDetail';
 
 function Grid({ data }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
