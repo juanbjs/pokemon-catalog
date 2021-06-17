@@ -1,0 +1,16 @@
+.breadcrumb {
+  text-align: left;
+  padding-top: 10px;
+}
+
+.breadcrumb-separator {
+  color: #333;
+  margin: auto 6px;
+  user-select: none;
+}
+
+ol {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}

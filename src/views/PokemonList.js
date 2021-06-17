@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { getPokemonCatalog } from '../service';
 
@@ -11,6 +11,7 @@ import {
   Search,
   Divider,
   PokemonTitle,
+  Breadcrumb,
 } from '../component';
 
 function applyFilters(services, query) {
@@ -68,6 +69,11 @@ function PokemonList() {
 
   return (
     <div>
+      <Breadcrumb>
+        <Link to="/" replace>
+          Inicio
+        </Link>
+      </Breadcrumb>
       <Search
         onChange={(e) => {
           setSearchValue(e.target.value);
