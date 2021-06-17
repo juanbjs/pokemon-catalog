@@ -1,0 +1,28 @@
+.pokemon-detail {
+  padding: 10px;
+}
+
+.pokemon-detail-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pokemon-detail-data-text {
+  text-align: left;
+}
+
+.pokemon-detail-data-image {
+  width: 500px;
+}
+
+@media (max-width: 600px) {
+  .pokemon-detail-data {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pokemon-detail-data-image {
+    width: 100%;
+  }
+}

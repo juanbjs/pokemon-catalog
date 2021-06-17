@@ -7,14 +7,31 @@ import PropTypes from 'prop-types';
 function PokemonTitle({
   className, imageUrl, name, onClick,
 }) {
+  const [isLoaded, setIsLoaded] = React.useState(false);
   return (
     <div
       className={className}
     >
-      <img
-        src={imageUrl}
-        alt="logo"
-      />
+      <div
+        className="thumb"
+        style={{ display: isLoaded ? 'none' : 'block' }}
+      >
+        <img
+          alt={name}
+          src="/poke_loading.gif"
+        />
+      </div>
+      <div
+        style={{ display: isLoaded ? 'block' : 'none' }}
+      >
+        <img
+          onLoad={() => {
+            setIsLoaded(true);
+          }}
+          src={imageUrl}
+          alt={name}
+        />
+      </div>
       <p
         className="title"
       >

@@ -3,59 +3,16 @@ import PropTypes from 'prop-types';
 
 import './Grid.css';
 
-import PokemonTitle from './PokemonTitle';
-import PokemonDetail from './PokemonDetail';
-
-function Grid({ data }) {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [pokemonSelected, setPokemonSelected] = React.useState({});
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
+function Grid({ children }) {
   return (
-    <React.Suspense>
-      {
-        pokemonSelected.name && (
-          <PokemonDetail
-            modalIsOpen={modalIsOpen}
-            closeModal={closeModal}
-            pokemonSelected={pokemonSelected}
-          />
-        )
-      }
-      <div className="grid-container">
-        {
-          data.map(
-            (item, index) => {
-              const key = `list_pokemon_${index}`;
-              return (
-                <PokemonTitle
-                  key={key}
-                  className="grid-item"
-                  imageUrl={item.imageUrl}
-                  name={item.name}
-                  onClick={() => {
-                    openModal();
-                    setPokemonSelected(item);
-                  }}
-                />
-              );
-            },
-          )
-        }
-      </div>
-    </React.Suspense>
+    <div className="grid-container">
+      {children}
+    </div>
   );
 }
 
 Grid.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Grid;
